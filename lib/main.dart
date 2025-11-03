@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text("Phone"),
-                       Text("+966 59 123 4567")
+                       Text("+966 59 123 49999")
                       ],
                   )
                   
