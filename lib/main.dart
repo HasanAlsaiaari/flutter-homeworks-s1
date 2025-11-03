@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text("Email"),
-                       Text("hasanalsaiaari@gmail.com")
+                       Text("HAlsaiaari@outlook.com")
                       ],
                   ),
                   Divider(),
