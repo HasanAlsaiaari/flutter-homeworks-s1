@@ -14,7 +14,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(),
-        body: Column(
+        
+        body:
+        SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(
               width: double.infinity,
@@ -29,28 +33,107 @@ class MyApp extends StatelessWidget {
                   ),
 
                   Text("Hasan Alsaiaari"),
-                  Text("Devloper"),
+                  Text("Web Devloper"),
+
+                  SizedBox(height: 20),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("Email"),
-                       Text("HAlsaiaari@outlook.com")
-                      ],
+                    children: [Text("Email"), Text("hasanalsaiaari@gmail.com")],
                   ),
                   Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("Phone"),
-                       Text("+966 59 123 49999")
-                      ],
-                  )
-                  
+                    children: [Text("Phone"), Text("+967 770497978")],
+                  ),
                 ],
               ),
             ),
-          ],
+
+            Divider(),
+
+            Container(
+              width: double.infinity,
+               color: Colors.amber,
+               child: Column(
+                children: [
+                  Text("Skills",style: TextStyle(fontSize: 15),),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                      Text(".NET Framework"),
+                      Text("SQL Server"),
+                      Text("Flutter"),
+                      Text("C#"),
+                      Text("C++"),
+                      Text("Dart")
+
+                      ],
+                      )
+                    
+                    ],
+                  ),
+                ],
+               ),
         ),
+
+        Container(
+          width: double.infinity,
+           color: Colors.green,
+           child: Column(
+            children: [
+              Text("Education",style: TextStyle(fontSize: 15),),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                  Text("Bachelor's degree in Information Technology"),
+                  Text("University of Seiyun"),
+                  Text("2023 - 2027"),
+
+                  ],
+                  )
+                
+                ],
+              ),
+            ],
+           ),
+        ),
+
+        Container(
+          width: double.infinity,
+           color: Colors.red,
+           child: Column(
+            children: [
+              Text("Experience",style: TextStyle(fontSize: 15),),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                  Text("Internship & Study At Programming Advices Platform"),
+                  Text("Duration: 15 months"),
+                  Text("Role: Full Stack Web Developer"),
+
+                  ],
+                  )
+                
+                ],
+              ),
+            ],
+           ),
+        )
+
+
+        ],
+        ),
+        )
       ),
     );
   }
