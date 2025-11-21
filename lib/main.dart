@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Secondpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,130 +11,76 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(),
-        
-        body:
-        SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Container(
-              width: double.infinity,
-              color: Colors.blue,
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    minRadius: 100,
-                    backgroundImage: Image.asset(
-                      'images/personal_Image.jpg',
-                    ).image,
-                  ),
+    return MaterialApp(title: "Flutter Demo", home: const Homepage());
+  }
+}
 
-                  Text("Hasan Alsaiaari"),
-                  Text("Web Devloper"),
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
 
-                  SizedBox(height: 20),
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [Text("Email"), Text("hasanalsaiaari@gmail.com")],
-                  ),
-                  Divider(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [Text("Phone"), Text("+967 770497978")],
-                  ),
-                ],
+class _HomepageState extends State<Homepage> {
+  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
+
+  void _CopyTextToAnotherTextField() {
+    setState(() {
+      _controller2.text = _controller1.text;
+    });
+  }
+
+  void _Nav2() {
+    Navigator.push(
+      context,
+
+      MaterialPageRoute(
+        builder: (context) => Secondpage(name: _controller1.text),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Home Page")),
+      body: Column(
+        children: [
+          TextField(
+            controller: _controller1,
+            decoration: InputDecoration(
+              labelText: "Enter Your Name",
+              hintText: "Hasan",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30.0),
               ),
             ),
-
-            Divider(),
-
-            Container(
-              width: double.infinity,
-               color: Colors.amber,
-               child: Column(
-                children: [
-                  Text("Skills",style: TextStyle(fontSize: 15),),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                      Text(".NET Framework"),
-                      Text("SQL Server"),
-                      Text("Flutter"),
-                      Text("C#"),
-                      Text("C++"),
-                      Text("Dart")
-
-                      ],
-                      )
-                    
-                    ],
-                  ),
-                ],
-               ),
-        ),
-
-        Container(
-          width: double.infinity,
-           color: Colors.green,
-           child: Column(
-            children: [
-              Text("Education",style: TextStyle(fontSize: 15),),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                  Text("Bachelor's degree in Information Technology"),
-                  Text("University of Seiyun"),
-                  Text("2023 - 2027"),
-
-                  ],
-                  )
-                
-                ],
+          ),
+          SizedBox(height: 30),
+          TextField(
+            controller: _controller2,
+            decoration: InputDecoration(
+              labelText: "Inputed Name",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30.0),
               ),
-            ],
-           ),
-        ),
+            ),
+            readOnly: true,
+          ),
 
-        Container(
-          width: double.infinity,
-           color: Colors.red,
-           child: Column(
-            children: [
-              Text("Experience",style: TextStyle(fontSize: 15),),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                  Text("Internship & Study At Programming Advices Platform"),
-                  Text("Duration: 15 months"),
-                  Text("Role: Full Stack Web Developer"),
+          SizedBox(height: 30),
 
-                  ],
-                  )
-                
-                ],
-              ),
-            ],
-           ),
-        )
+          ElevatedButton(
+            onPressed: _CopyTextToAnotherTextField,
+            child: Text("Copy To SecondTextField"),
+          ),
 
+          SizedBox(height: 10),
 
+          ElevatedButton(onPressed: _Nav2, child: Text("Navigator")),
         ],
-        ),
-        )
       ),
     );
   }
